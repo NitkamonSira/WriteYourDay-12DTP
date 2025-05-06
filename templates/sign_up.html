@@ -1,8 +1,16 @@
 {% extends "layout.html" %}
 {% block content %}
 <form action="{{ url_for("sign_up")}}" method="post">
-
-<input type="email" id="" name="email" placeholder="">
+<label for="email">email</label><br>
+<input type="email" id="email" name="email" placeholder="eg. hello123@gmail.com" required><br>
+<label for="username">username</label><br>
+<input type="text" id="username" name="username" placeholder="" required><br>
+<label for="password">password</label><br>
+<input type="password" id="password" name="password" placeholder="" required><br>
+<label for="birthday">birthday</label><br>
+<input type="date" id="birthday" name="birthday" placeholder=""><br>
+<label for="name">name</label><br>
+<input type="text" id="name" name="name" placeholder=""><br>
 <button type="submit">sign up</button>
 
 {% endblock %}
