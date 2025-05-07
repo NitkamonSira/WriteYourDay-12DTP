@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-
+from database_connection import *
 app = Flask(__name__)
 
 @app.route("/")
@@ -11,10 +11,12 @@ def home():
 def sign_up():
     email = request.form.get("email")
     username = request.form.get("username")
-    password = request.form.get("password")
+    password = hash(request.form.get("password"))
     name = request.form.get("name")
     birthday = request.form.get("birthday")
-    
+    check_user_data("email", "email", email)
+    check_user_data("username", "username", username)
+    check_user_data("password", "password", password)
     return render_template("sign_up.html", title = "sign up")
 
 if __name__ == "__main__":
