@@ -1,6 +1,6 @@
 import sqlite3
 
-DATABASE = "diary.db"
+DATABASE = "commit_test.db"
 
 
 def get_data_from_database(query, params=None):
@@ -11,10 +11,17 @@ def get_data_from_database(query, params=None):
         else:
             cursor.execute(query, params)
         results = cursor.fetchall()
+    return results
 
 
 def insert_data(query, params=None):
-    pass
+    with sqlite3.connect(DATABASE) as db:
+        cursor = db.cursor()
+        if params is None:
+            cursor.execute(query)
+        else:
+            cursor.execute(query, params)
+        db.commit()
 
 
 def check_user_data(require, check, input_taken):
