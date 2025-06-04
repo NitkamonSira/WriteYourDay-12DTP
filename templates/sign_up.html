@@ -1,16 +1,40 @@
-{% extends "layout.html" %}
+{% extends 'layout.html' %}
 {% block content %}
-<form action="{{ url_for("sign_up")}}" method="post">
-<label for="email">email</label><br>
-<input type="email" id="email" name="email" placeholder="eg. hello123@gmail.com" required><br>
-<label for="username">username</label><br>
-<input type="text" id="username" name="username" placeholder="" required><br>
-<label for="password">password</label><br>
-<input type="password" id="password" name="password" placeholder="" required><br>
-<label for="birthday">birthday</label><br>
-<input type="date" id="birthday" name="birthday" placeholder=""><br>
-<label for="name">name</label><br>
-<input type="text" id="name" name="name" placeholder=""><br>
-<button type="submit">sign up</button>
-
+  <form action="{{ url_for('sign_up') }}" method="post">
+    <table>
+      <tr>
+        <label for="email">email</label>
+      </tr>
+      <tr>
+        <input type="email" id="email" name="email" placeholder="eg. hello123@gmail.com" required />
+      </tr>
+      <tr>
+        <label for="username">username</label>
+      </tr>
+      <tr>
+        <input type="text" id="username" name="username" placeholder="" required />
+      </tr>
+      <tr>
+        <label for="password">password</label>
+      </tr>
+      <tr>
+        <input type="password" id="password" name="password" placeholder="" required />
+      </tr>
+      <tr>
+        <label for="birthday">birthday</label>
+      </tr>
+      <tr>
+        <input type="date" id="birthday" name="birthday" placeholder="" />
+      </tr>
+      <tr>
+        <label for="name">name</label>
+      </tr>
+      <tr>
+        <input type="text" id="name" name="name" placeholder="" />
+      </tr>
+      <tr>
+        <button type="submit">sign up</button>
+      </tr>
+    </table>
+  </form>
 {% endblock %}
