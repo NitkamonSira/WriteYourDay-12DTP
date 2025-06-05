@@ -1,40 +1,44 @@
 {% extends 'layout.html' %}
 {% block content %}
   <form action="{{ url_for('sign_up') }}" method="post">
-    <table>
+    <table class="sign_up">
       <tr>
-        <label for="email">email</label>
+        <td>
+          <label for="email">email</label>
+        </td>
       </tr>
       <tr>
-        <input type="email" id="email" name="email" placeholder="eg. hello123@gmail.com" required />
+        <td>
+          <input type="email" id="email" name="email" placeholder="eg. hello123@gmail.com" required />
+        </td>
       </tr>
       <tr>
-        <label for="username">username</label>
+        <td>
+          <label for="username">username</label>
+        </td>
       </tr>
       <tr>
-        <input type="text" id="username" name="username" placeholder="" required />
+        <td>
+          <input type="text" id="username" name="username" placeholder="" required />
+        </td>
       </tr>
       <tr>
-        <label for="password">password</label>
+        <td>
+          <label for="password">password</label>
+        </td>
       </tr>
       <tr>
-        <input type="password" id="password" name="password" placeholder="" required />
+        <td>
+          <input type="password" id="password" name="password" placeholder="" required /><br>
+          Your password must contain at least 3 of the following: <br>
+  - Capital letter (A-Z) <br>
+  - Lower case letter (a-z) <br>
+  - Number <br>
+  - Special characters eg. ! ; _ - <br>
+
+        </td>
       </tr>
-      <tr>
-        <label for="birthday">birthday</label>
-      </tr>
-      <tr>
-        <input type="date" id="birthday" name="birthday" placeholder="" />
-      </tr>
-      <tr>
-        <label for="name">name</label>
-      </tr>
-      <tr>
-        <input type="text" id="name" name="name" placeholder="" />
-      </tr>
-      <tr>
-        <button type="submit">sign up</button>
-      </tr>
+      <tr><td><input type="submit" value="Sign Up"></td></tr>
     </table>
   </form>
 {% endblock %}
