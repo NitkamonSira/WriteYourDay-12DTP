@@ -25,7 +25,19 @@ def insert_data(query, params=None):
 
 
 def check_user_data(require, check, input_taken):
+    """check that the user data that was entry match with the data in the database or not
+
+    Args:
+        require (str): the column name of database that need to be check with
+        check (str): the column name that use for filter the data to match the need
+        input_taken (Any): the input that need to be check that it match or exist in the database
+
+    Returns:
+        bool: False for don't have or don't match and True for match or have
+    """
     query = f"SELECT {require} FROM User WHERE {check} = ?;"
     result = get_data_from_database(query,(input_taken,))
     if len(result) == 0:
         return False
+    else:
+        return True

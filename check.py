@@ -1,15 +1,15 @@
-def check_email(enter):
+def check_email(email):
     """Basic check for whether the input is email or not.
     Check that the input contains '@' or not and check that there are some things before and after the sign.
 
     Args:
-        enter (str): The input that the user enters as an email.
+        email (str): The input that the user enters as an email.
 
     Returns:
         bool: True for the input that pass the basic check and False for not
     """
     try:
-        username, domain = enter.split("@")
+        username, domain = email.split("@")
         if username != "" and domain != "":
             return True
         else:
@@ -55,4 +55,8 @@ def check_password(password):
     else:
         return False
     
-            
+email = input()            
+if check_email(email):
+    print("yes")
+else:
+    print("no")
