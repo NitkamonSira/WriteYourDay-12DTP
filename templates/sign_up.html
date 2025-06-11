@@ -9,7 +9,8 @@
       </tr>
       <tr>
         <td>
-          <input type="email" id="email" name="email" placeholder="eg. hello123@gmail.com" required />
+          <input id="email" name="email" placeholder="eg. hello123@gmail.com"  />
+          {% if not email %}that is not an email{% endif %}
         </td>
       </tr>
       <tr>
