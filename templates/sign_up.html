@@ -10,7 +10,7 @@
       <tr>
         <td>
           <input id="email" name="email" placeholder="eg. hello123@gmail.com"  />
-          {% if not email %}that is not an email{% endif %}
+          {% if not email %} <p class="warning">this email already exist</p>{% endif %} 
         </td>
       </tr>
       <tr>
@@ -21,6 +21,7 @@
       <tr>
         <td>
           <input type="text" id="username" name="username" placeholder="" required />
+          {% if not username %} <p>this username already exist</p>{% endif %}
         </td>
       </tr>
       <tr>
@@ -31,14 +32,18 @@
       <tr>
         <td>
           <input type="password" id="password" name="password" placeholder="" required /><br>
-          Your password must contain at least 3 of the following: <br>
+        </td>
+      </tr>
+      <tr>
+        <td><label for="confirm_password">confirm password</label></td>
+      </tr>
+      <tr><td><input type="password" name="confirm_password" id="confirm_password"></td></tr>
+      <tr><td><p>Your password must contain at least 3 of the following: <br>
   - Capital letter (A-Z) <br>
   - Lower case letter (a-z) <br>
   - Number <br>
-  - Special characters eg. ! ; _ - <br>
-
-        </td>
-      </tr>
+  - Special characters eg. ! ; _ - <br></p></td></tr>
+      {% if not password %} <tr><td>password is not match</td></tr>{% endif %}
       <tr><td><input type="submit" value="Sign Up"></td></tr>
     </table>
   </form>
