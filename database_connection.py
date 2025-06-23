@@ -33,9 +33,9 @@ def check_user_data(require, check, input_taken):
         input_taken (Any): the input that need to be check that it match or exist in the database
 
     Returns:
-        bool: False for don't have or don't match and True for match or have
+        bool: False for don't exist in database and True for match or have
     """
-    query = f"SELECT {require} FROM User WHERE {check} = ?;"
+    query = f"SELECT {require} FROM Test WHERE {check} = ?;"
     result = get_data_from_database(query,(input_taken,))
     if len(result) == 0:
         return False

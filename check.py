@@ -8,6 +8,9 @@ def check_email(email):
     Returns:
         bool: True for the input that pass the basic check and False for not
     """
+    if len(email) <= 3:
+        return False
+    
     try:
         username, domain = email.split("@")
         if username != "" and domain != "":
@@ -54,9 +57,3 @@ def check_password(password):
         return True
     else:
         return False
-    
-email = input()            
-if check_email(email):
-    print("yes")
-else:
-    print("no")
