@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+{% block content %}
+  <form action="{{ url_for('login') }}" method="post">
+    <table class="login">
+      <tr>
+        <td>
+          <label for="email">Email or Username</label>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input id="email" name="email" placeholder="" required />
+        </td>
+      </tr>
+      
+      <tr>
+        <td>
+          <label for="password">password</label>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="password" id="password" name="password" placeholder="" required /><br>
+        </td>
+      </tr>
+      
+      <tr><td><input type="submit" value="Sign Up"></td></tr>
+    </table>
+  </form>
+
+{% endblock  %}
