@@ -10,7 +10,7 @@
       <tr>
         <td>
           <input id="email" name="email" placeholder="eg. hello123@gmail.com"  />
-          {% if not email %} <p class="warning">this email already exist</p>{% endif %} 
+          {% if email %} <p class="warning">{{ email }}</p>{% endif %} 
         </td>
       </tr>
       <tr>
@@ -21,7 +21,7 @@
       <tr>
         <td>
           <input type="text" id="username" name="username" placeholder="" required />
-          {% if not username %} <p>this username already exist</p>{% endif %}
+          {% if username %} <p>{{ username }}</p>{% endif %}
         </td>
       </tr>
       <tr>
@@ -43,7 +43,7 @@
   - Lower case letter (a-z) <br>
   - Number <br>
   - Special characters eg. ! ; _ - <br></p></td></tr>
-      {% if not password %} <tr><td>password is not match</td></tr>{% endif %}
+      {% if password %} <tr><td>{{ password }}</td></tr>{% endif %}
       <tr><td><input type="submit" value="Sign Up"></td></tr>
     </table>
   </form>
