@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap');
+
+body {
+    font-family: 'Red Hat Text', sans-serif;
+}
+
+nav {
+    display: grid inline-grid;
+    background-color: #535984;
+    height: 6vw;
+    position: sticky;
+}
+
+ nav a {
+    color: #F7EFF0;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    text-decoration: none;
+}
+nav img {
+    height: 5vw;
+    margin: 0.5vw;
+    grid-column-start: 1;
+    grid-column-end: 2;
+
+}

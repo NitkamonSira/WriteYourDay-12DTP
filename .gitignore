@@ -175,5 +175,6 @@ cython_debug/
 .pypirc
 
 test.py
+test2.py
 /test
 email_password.txt

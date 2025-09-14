@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{title}} - WriteYourDay</title>
-    <link rel="stylesheet" href="\static\css\style.css">
+    <link rel="stylesheet" href="../static/style.css">
 </head>
 <body>
     <header></header>
-    <nav>Nav</nav>
-    <main>{% block content %}{% endblock  %}</main>
+    <nav> 
+        <a href="/"><img src="../static/logo.png" alt="logo"></a>
+        <a href="/" id="name">WriteYourDay</a>
+    </nav>
+    <main>{% block content %}{% endblock %}</main>
     <footer>© 2025</footer>
 </body>
 </html>

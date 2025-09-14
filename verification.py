@@ -1,25 +1,65 @@
 import smtplib
-from smtplib import SMTPRecipientsRefused, SMTPServerDisconnected
+import random
 
-def send_email(sender_email, sender_email_password, reciever_email, message):
-    session = None
+SERVER = "smtp.gmail.com"
+PORT = 587
+SENDER_EMAIL = "noreply.writeyourday@gmail.com"
+
+
+def send_email(password, receiver_email, code, username):
+    """Sends a verification email with a verification code.
+
+    Args:
+        password (str): The app password for the sender's email account.
+        receiver_email (str): The recipient's email address.
+        code (str): The verification code to include in the email.
+        username (str): The name of the user to personalise the message.
+
+    Returns:
+        None
+    """
+    message = f"""\
+Subject: Verification code
+
+Hello {username},
+
+Your verification code is:
+
+{code}
+
+Please enter this code to complete your verification process.
+
+If you didn't request this code, please ignore this email.
+Do not share this code with anyone.
+
+Best regards,
+
+Write Your Day"""
     try:
-        session = smtplib.SMTP('smtp.gmail.com', 587)
-        session.starttls()
-        session.login(sender_email, sender_email_password)
-        session.sendmail(sender_email, reciever_email, message)
-        print(f"Email sent successfully to {reciever_email}!")
-    except SMTPRecipientsRefused:
-        print(f"Error: Recipient email refused.")
-    except SMTPServerDisconnected:
-        print(f"Error: SMTP server disconnected.")
+        with smtplib.SMTP(SERVER, PORT) as server:
+            server.starttls()
+            server.login(SENDER_EMAIL, password)
+            server.sendmail(SENDER_EMAIL, receiver_email, message)
+            print(f"Email sent successfully to {receiver_email}")
     except Exception as e:
-        print(f"An unexpected error occurred: {e}")
-    finally:
-        session.quit()
-    
+        print(f"Error sending email: {e}")
+
+
 with open('email_password.txt', 'r') as file:
-    lines = file.readlines()
-    sender_email = lines[0].strip()
-    sender_email_password = lines[1].strip()
-           
+    email_password = file.read()
+
+
+def verification_code(num):
+    """_summary_
+
+    Args:
+        num (int): length of the verification code
+
+    Returns:
+        str: num digits of verification code
+    """
+    number = ""
+    for _ in range(num):
+        code = random.randint(0, 9)
+        number += str(code)
+    return number

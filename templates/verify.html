@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+{% block content %}
+    Verify Your Account
+
+    
+    <form action="{{ url_for('verify_page') }}" method="post">
+        <p>We’ve sent a verification code to <strong>{{email}}</strong>. Please check your inbox and enter the code below:</p><br>
+
+        <label for="code">Verification Code:</label><br>
+        <input type="text" id="code" name="code" required><br>
+        {% if verify %}
+        your verification code is incorrect<br>
+        {% endif %}
+        <input type="submit" value="Verify">
+    </form>
+{% endblock  %}

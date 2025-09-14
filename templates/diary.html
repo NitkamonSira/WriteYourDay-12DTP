@@ -1,0 +1,11 @@
+{% extends 'layout.html' %}
+{% block content %}
+<form action="{{ url_for('diary', id=id) }}" method="post">
+    <input type="submit" value="exit" id="exit" name="exit">
+    <button type="submit" name="save" value="save">save</button><br>
+    <input type="text" name="diary_title" id="diary_title" value="{{topic}}"><br>
+
+    <textarea name="diary" id="diary" >{{info}}</textarea>
+    <input type="range" min="1" max="10" class="slider" id="rate" name="rate" value="{{rate}}"><br>
+</form>
+{% endblock %}

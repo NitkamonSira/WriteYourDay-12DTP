@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+{% block content %}
+<form action="{{ url_for('main') }}" method="post">
+    Hello, {{ user }}<br>
+    <input type="submit" value="+ new" ><br>
+    recently open<br>
+    {% for diary in diary_list %}
+    <div>
+        <a href="/diary/{{ diary[0] }}">
+            {{ diary[1] }}
+        </a>
+    </div>
+    {% endfor %}
+</form>
+
+{% endblock %}

@@ -1,31 +1,17 @@
 {% extends 'layout.html' %}
 {% block content %}
   <form action="{{ url_for('login') }}" method="post">
-    <table class="login">
-      <tr>
-        <td>
-          <label for="email">Email or Username</label>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <input id="email" name="email" placeholder="" required />
-        </td>
-      </tr>
-      
-      <tr>
-        <td>
-          <label for="password">password</label>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <input type="password" id="password" name="password" placeholder="" required /><br>
-        </td>
-      </tr>
-      
-      <tr><td><input type="submit" value="Sign Up"></td></tr>
-    </table>
-  </form>
+    {% if require %}username or password is incorrect<br>{% endif %}
 
-{% endblock  %}
+    <label for="email">Email or Username</label><br>
+
+    <input id="email" name="email" placeholder="" required /><br>
+
+    <label for="password">password</label><br>
+
+    <input type="password" id="password" name="password" placeholder="" required /><br>
+
+    <input type="submit" value="Log in" /><br>
+    <p>Haven't have an account? <a href="/sign_up">Sign up</a></p>
+  </form>
+{% endblock %}

@@ -1,10 +1,19 @@
 import sqlite3
 
-DATABASE = "commit_test.db"
+DATABASE = "diary.db"
 
 
 def get_data_from_database(query, params=None):
-    with sqlite3.connect(DATABASE) as db:
+    """_summary_
+
+    Args:
+        query (str): query that use to get the data from database
+        params (tuple, optional): Variable that need to pass in with the query. Defaults to None.
+
+    Returns:
+        list: list of the data that got from database
+    """
+    with sqlite3.connect(DATABASE) as db:  # connected with database
         cursor = db.cursor()
         if params is None:
             cursor.execute(query)
@@ -15,13 +24,25 @@ def get_data_from_database(query, params=None):
 
 
 def insert_data(query, params=None):
-    with sqlite3.connect(DATABASE) as db:
+    """insert data into database
+
+    Args:
+        query (str): query use to insert data
+        params (tuple, optional): Variable that need to pass in with the query. Defaults to None.
+
+    Returns:
+        int: id of the row that just inserted
+    """
+    with sqlite3.connect(DATABASE) as db:  # connect with database
         cursor = db.cursor()
         if params is None:
             cursor.execute(query)
+            last_id = cursor.lastrowid
         else:
             cursor.execute(query, params)
+            last_id = cursor.lastrowid
         db.commit()
+    return last_id
 
 
 def check_user_data(require, check, input_taken):
@@ -35,8 +56,11 @@ def check_user_data(require, check, input_taken):
     Returns:
         bool: False for don't exist in database and True for match or have
     """
-    query = f"SELECT {require} FROM Test WHERE {check} = ?;"
-    result = get_data_from_database(query,(input_taken,))
+    query = f"SELECT {require} FROM User WHERE {check} = ?;"
+    result = get_data_from_database(query, (input_taken,))
+    
+    # check that data exist in database or not
+    # result should be blank list if data doesn't exist
     if len(result) == 0:
         return False
     else:

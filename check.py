@@ -1,3 +1,6 @@
+import hashlib
+
+
 def check_email(email):
     """Basic check for whether the input is email or not.
     Check that the input contains '@' or not and check that there are some things before and after the sign.
@@ -10,7 +13,7 @@ def check_email(email):
     """
     if len(email) <= 3:
         return False
-    
+
     try:
         username, domain = email.split("@")
         if username != "" and domain != "":
@@ -19,7 +22,8 @@ def check_email(email):
             return False
     except ValueError:
         return False
-    
+
+
 def check_password(password):
     """Check the input taken met the minimum requirements for password.
 
@@ -57,3 +61,19 @@ def check_password(password):
         return True
     else:
         return False
+
+
+def convert_password(password):
+    """hashing password
+
+    Args:
+        password (str): original password
+
+    Returns:
+        str: hashed password
+    """
+    string = password.encode("utf-8")
+    sha256 = hashlib.sha256()
+    sha256.update(string)
+    string_hash = sha256.hexdigest()
+    return string_hash

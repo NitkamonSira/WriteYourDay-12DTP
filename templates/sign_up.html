@@ -1,50 +1,37 @@
 {% extends 'layout.html' %}
 {% block content %}
   <form action="{{ url_for('sign_up') }}" method="post">
-    <table class="sign_up">
-      <tr>
-        <td>
-          <label for="email">email</label>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <input id="email" name="email" placeholder="eg. hello123@gmail.com"  />
-          {% if email %} <p class="warning">{{ email }}</p>{% endif %} 
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <label for="username">username</label>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <input type="text" id="username" name="username" placeholder="" required />
-          {% if username %} <p>{{ username }}</p>{% endif %}
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <label for="password">password</label>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <input type="password" id="password" name="password" placeholder="" required /><br>
-        </td>
-      </tr>
-      <tr>
-        <td><label for="confirm_password">confirm password</label></td>
-      </tr>
-      <tr><td><input type="password" name="confirm_password" id="confirm_password"></td></tr>
-      <tr><td><p>Your password must contain at least 3 of the following: <br>
-  - Capital letter (A-Z) <br>
-  - Lower case letter (a-z) <br>
-  - Number <br>
-  - Special characters eg. ! ; _ - <br></p></td></tr>
-      {% if password %} <tr><td>{{ password }}</td></tr>{% endif %}
-      <tr><td><input type="submit" value="Sign Up"></td></tr>
-    </table>
+    <label for="email">email</label><br>
+
+    <input id="email" name="email" placeholder="eg. hello123@gmail.com" /><br>
+    {% if email %}
+      <p class="warning">{{ email }}</p>
+    {% endif %}
+
+    <label for="username">username</label><br>
+
+    <input type="text" id="username" name="username" placeholder="" required /><br>
+    {% if username %}
+      <p>{{ username }}</p>
+    {% endif %}
+
+    <label for="password">password</label><br>
+    <input type="password" id="password" name="password" placeholder="" required /><br />
+
+    <label for="confirm_password">confirm password</label><br>
+
+    <input type="password" name="confirm_password" id="confirm_password" /><br>
+    <p>
+      Your password must contain at least 3 of the following: <br />
+      - Capital letter (A-Z) <br />
+      - Lower case letter (a-z) <br />
+      - Number <br />
+      - Special characters eg. ! ; _ - <br />
+    </p>
+    {% if password %}
+      {{ password }}
+    {% endif %}
+    <input type="submit" value="Sign Up" />
+    <p>Already have an account? <a href="/login">Log in</a></p>
   </form>
 {% endblock %}
