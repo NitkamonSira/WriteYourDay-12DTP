@@ -11,8 +11,13 @@
     <nav> 
         <a href="/"><img src="../static/logo.png" alt="logo"></a>
         <a href="/" id="name">WriteYourDay</a>
+        {% if login %}
+        <form action="{{ url_for("main")}}" method="post" class="logout">
+        <button type="submit" name="logout" value="logout" class="logout">Log out</button>
+        </form>
+        {% endif %}
     </nav>
     <main>{% block content %}{% endblock %}</main>
-    <footer>© 2025</footer>
+    <footer>© 2025 - WriteYourDay</footer>
 </body>
 </html>

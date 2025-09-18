@@ -3,7 +3,8 @@ import hashlib
 
 def check_email(email):
     """Basic check for whether the input is email or not.
-    Check that the input contains '@' or not and check that there are some things before and after the sign.
+    Check that the input contains '@' or not and check that
+    there are some things before and after the sign.
 
     Args:
         email (str): The input that the user enters as an email.
@@ -47,7 +48,7 @@ def check_password(password):
             capital = True
         elif letter.isascii():
             special = True
-            
+
     if number:
         condition += 1
     if capital:
@@ -56,8 +57,8 @@ def check_password(password):
         condition += 1
     if special:
         condition += 1
-    
-    if len(password) >= 8 and condition >= 3:
+
+    if len(password) >= 8 and len(password) <= 20 and condition >= 3:
         return True
     else:
         return False

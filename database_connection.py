@@ -8,7 +8,8 @@ def get_data_from_database(query, params=None):
 
     Args:
         query (str): query that use to get the data from database
-        params (tuple, optional): Variable that need to pass in with the query. Defaults to None.
+        params (tuple, optional): Variable that need to pass in with the query. 
+        Defaults to None.
 
     Returns:
         list: list of the data that got from database
@@ -23,12 +24,13 @@ def get_data_from_database(query, params=None):
     return results
 
 
-def insert_data(query, params=None):
+def update_data(query, params=None):
     """insert data into database
 
     Args:
-        query (str): query use to insert data
-        params (tuple, optional): Variable that need to pass in with the query. Defaults to None.
+        query (str): query use to insert/update/delete data
+        params (tuple, optional): Variable that need to pass in with the query.
+        Defaults to None.
 
     Returns:
         int: id of the row that just inserted
@@ -51,7 +53,8 @@ def check_user_data(require, check, input_taken):
     Args:
         require (str): the column name of database that need to be check with
         check (str): the column name that use for filter the data to match the need
-        input_taken (Any): the input that need to be check that it match or exist in the database
+        input_taken (Any): the input that need to be check that it match
+                           or exist in the database
 
     Returns:
         bool: False for don't exist in database and True for match or have

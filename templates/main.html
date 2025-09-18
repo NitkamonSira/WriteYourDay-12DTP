@@ -1,14 +1,18 @@
 {% extends 'layout.html' %}
 {% block content %}
-<form action="{{ url_for('main') }}" method="post">
-    Hello, {{ user }}<br>
-    <input type="submit" value="+ new" ><br>
-    recently open<br>
+<form action="{{ url_for('main') }}" method="post" class="diary_list">
+    <h2>Hello, {{ user }}</h2>
+    <input type="submit" value="+ new" class="new"><br>
+    <p class="open">Recently open...</p>
+    {% if num_diary == 0 %}
+    <p>Your haven't create any diary yet. Let's get start!</p>{% endif %}
     {% for diary in diary_list %}
-    <div>
-        <a href="/diary/{{ diary[0] }}">
-            {{ diary[1] }}
-        </a>
+    <div class="diary_list">
+        <a href="/diary/{{ diary[0] }}" class="diary_list">
+            {{ diary[1] }} - {{ diary[5]}}/{{ diary[4] }}/{{diary[3]}}
+        <p class="modify">last modified on {{diary[2][6:8]}}/{{diary[2][4:6]}}/{{diary[2][:4]}} 
+            {{diary[2][8:10]}}:{{diary[2][10:12]}}:{{diary[2][12:14]}}
+        </p></a>
     </div>
     {% endfor %}
 </form>

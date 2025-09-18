@@ -1,11 +1,17 @@
 {% extends 'layout.html' %}
 {% block content %}
-<form action="{{ url_for('diary', id=id) }}" method="post">
+<form action="{{ url_for('diary', id=id) }}" method="post" class="diary">
     <input type="submit" value="exit" id="exit" name="exit">
-    <button type="submit" name="save" value="save">save</button><br>
-    <input type="text" name="diary_title" id="diary_title" value="{{topic}}"><br>
-
-    <textarea name="diary" id="diary" >{{info}}</textarea>
-    <input type="range" min="1" max="10" class="slider" id="rate" name="rate" value="{{rate}}"><br>
+    <label for="diary_title">Title:</label>
+    <input type="text" name="diary_title" id="diary_title" value="{{topic}}" class="diary_title">
+    <p class="date">{{ date }}</p>
+    <button type="submit" name="delete" value="delete" class="delete_button">delete</button>
+    <button type="submit" name="save" value="save" class="save_button">save</button>
+    <p class="notice">Please make sure that you save your diary before exit. Any change cannot be undone.</p>
+    <label for="rate" class="rate">How was your day?</label>
+    <p class="slider">lowest 😢</p>
+    <input type="range" min="1" max="10" class="rate" id="rate" name="rate" value="{{rate}}">
+    <p class="slider">highest 😊</p>
+    <textarea name="diary" id="diary" class="diary" placeholder="Start writing here...">{{info}}</textarea>
 </form>
 {% endblock %}

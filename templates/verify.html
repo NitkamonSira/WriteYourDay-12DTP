@@ -1,16 +1,17 @@
 {% extends 'layout.html' %}
 {% block content %}
-    Verify Your Account
+    <h1>Verify Your Account</h1>
 
     
-    <form action="{{ url_for('verify_page') }}" method="post">
-        <p>We’ve sent a verification code to <strong>{{email}}</strong>. Please check your inbox and enter the code below:</p><br>
+    <form action="{{ url_for('verify_page') }}" method="post" class="verify">
+        <p class="verify">We’ve sent a verification code to <strong>{{email}}</strong>. <br>
+         Please check your inbox and enter the code below:</p>
 
-        <label for="code">Verification Code:</label><br>
-        <input type="text" id="code" name="code" required><br>
+        <label for="code">Verification Code:</label>
+        <input type="text" id="code" name="code" class="verify">
         {% if verify %}
-        your verification code is incorrect<br>
-        {% endif %}
-        <input type="submit" value="Verify">
+        <span class="warning">Your verification code is incorrect</span>
+        {% endif %}<br>
+        <input type="submit" value="Verify" class="verify">
     </form>
 {% endblock  %}

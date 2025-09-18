@@ -1,37 +1,39 @@
 {% extends 'layout.html' %}
 {% block content %}
-  <form action="{{ url_for('sign_up') }}" method="post">
-    <label for="email">email</label><br>
+  <form action="{{ url_for('sign_up') }}" method="post" class="sign_in">
+    <h1>WriteYourDay</h1>
+    <label for="email">Email</label>
 
-    <input id="email" name="email" placeholder="eg. hello123@gmail.com" /><br>
+    <input id="email" name="email" placeholder="eg. hello123@gmail.com" />
     {% if email %}
-      <p class="warning">{{ email }}</p>
-    {% endif %}
+      <span class="warning">{{ email }}</span>
+    {% endif %}<br>
 
-    <label for="username">username</label><br>
+    <label for="username">Username</label>
 
-    <input type="text" id="username" name="username" placeholder="" required /><br>
+    <input type="text" id="username" name="username" placeholder="" />
     {% if username %}
-      <p>{{ username }}</p>
-    {% endif %}
+      <span class="warning">{{ username }}</span>
+    {% endif %}<br>
 
-    <label for="password">password</label><br>
-    <input type="password" id="password" name="password" placeholder="" required /><br />
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" placeholder="" /><br />
 
-    <label for="confirm_password">confirm password</label><br>
+    <label for="confirm_password">Confirm password</label>
 
-    <input type="password" name="confirm_password" id="confirm_password" /><br>
+    <input type="password" name="confirm_password" id="confirm_password" />
+    {% if password %}
+      <span class="warning">{{ password }}</span>
+    {% endif %}<br>
     <p>
-      Your password must contain at least 3 of the following: <br />
+      Your password must between 8 - 20 characters and contain at least 3 of the following: <br />
       - Capital letter (A-Z) <br />
       - Lower case letter (a-z) <br />
       - Number <br />
       - Special characters eg. ! ; _ - <br />
     </p>
-    {% if password %}
-      {{ password }}
-    {% endif %}
-    <input type="submit" value="Sign Up" />
+    
+    <input type="submit" value="Sign Up" class="login"/>
     <p>Already have an account? <a href="/login">Log in</a></p>
   </form>
 {% endblock %}

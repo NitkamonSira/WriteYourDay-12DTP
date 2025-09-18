@@ -2,25 +2,333 @@
 
 body {
     font-family: 'Red Hat Text', sans-serif;
+    background-color: #F7EFE7;
+    color: #1B1E32;
+    margin: 0;
 }
 
+main {
+    display: grid;
+    margin: 0 25%;
+}
+p.modify {
+    margin: 0;
+}
+h2 {
+    font-size: 2.5em;
+    font-weight: normal;
+}
 nav {
-    display: grid inline-grid;
+    display: grid;
+    grid-template-columns: 6.5% 15% 78.5%;
+    align-items: center; 
     background-color: #535984;
     height: 6vw;
     position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
- nav a {
+nav a {
     color: #F7EFF0;
-    grid-column-start: 2;
-    grid-column-end: 3;
+    grid-row-start: 1;
+    font-size: 1.25em;
     text-decoration: none;
 }
 nav img {
     height: 5vw;
-    margin: 0.5vw;
+    margin: 0.5vw 0.5vw 0.5vw 1vw;
     grid-column-start: 1;
     grid-column-end: 2;
+    grid-row-start: 1;
 
+}
+form.logout {
+    width: 15%;
+    justify-self: right;
+    margin-right: 3%;
+}
+footer {
+    display: grid;
+    background-color: #535984;
+    color: #F7EFE7;
+    text-align: center;
+    height: 3vw;
+    align-items: center;
+}
+label {
+    color: #1B1E32;
+}
+
+input {
+    font-size: 1em;
+    color: #1B1E32;
+    width: 100%;
+    font: inherit;
+    border: 1px solid #959FE5;
+    border-radius: 5px;
+}
+button.save_button {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 9;
+    grid-column-end: 11;
+    margin-left: 10%;
+}
+button.delete_button {
+    grid-column-start: 8;
+    grid-column-end: 9;
+}
+button {
+    background-color: #D2D8FF;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
+    border: none;
+    width: 100%;
+    font-size: 1em;
+    font-family: inherit;
+
+}
+
+button:hover {
+    border: 2px solid #959FE5;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+
+}
+button.logout:hover {
+    text-decoration: underline;
+}
+input.diary_title {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 3;
+    grid-column-end: 5;
+}
+p.date {
+    grid-column-start: 5;
+    grid-column-end: 7;
+}
+input[type="submit"] {
+    background-color: #D2D8FF;
+    border: 2px, #959FE5;
+
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
+    width: 100%;
+}
+
+input[type="submit"]:hover {
+    border: 2px solid #959FE5;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+
+}
+
+input[type="submit"].login {
+    width: 20vw;
+}
+textarea {
+    background-color: #FDEFE0;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+    color: #1B1E32;
+    margin: 10px;
+    height: 60vh;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    grid-column-start: 1;
+    grid-column-end: 11;
+    border-radius: 10px;
+    width: 100%;
+    font: inherit;
+    border: 1px solid #959FE5;
+    font-size: 1.5em;
+    padding: 15px;
+
+}
+textarea:focus {
+    border: 2px solid #959FE5;
+}
+label.rate {
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+/* .rate reference css from W3School 
+https://www.w3schools.com/howto/howto_js_rangeslider.asp */
+input[type="range"].rate {
+    margin: 10px;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 4;
+    grid-column-end: 9;
+    /* -webkit-appearance: none; */
+    appearance: none;
+    width: 100%;
+    height: 25px;
+    background: #F7EFF0;
+    /* outline: none; */
+    border: 1px solid #1B1E32;
+}
+
+input[type="range"].rate::-webkit-slider-thumb {
+    /* -webkit-appearance: none; */
+    /* Override default look */
+    appearance: none;
+    width: 10%;
+    /* Set a specific slider handle width */
+    height: 25px;
+    /* Slider handle height */
+    background: #535984;
+    /* Green background */
+    cursor: pointer;
+    /* Cursor on hover */
+}
+
+input[type="range"].rate::-moz-range-thumb {
+    /* width: 25px;
+    Set a specific slider handle width
+    height: 25px; */
+    /* Slider handle height */
+    background: #04AA6D;
+    /* Green background */
+    cursor: pointer;
+    /* Cursor on hover */
+}
+p.slider {
+    grid-row-start: 3;
+}
+input[type="text"] {
+    color: #1B1E32;
+    width: 100%;
+    font: inherit;
+    border: 1px solid #959FE5;
+    border-radius: 5px;
+}
+input:hover {
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+
+}
+input:focus {
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+    border: 2px solid #959FE5;
+}
+form.diary {
+    display: grid;
+    grid-template-columns: repeat(10, 10%);
+    margin: 5% -10% 2% -10%;
+    place-items: center;
+}
+form.diary_list {
+    display: grid;
+    margin-bottom: 4vw;
+}
+form.sign_in {
+    display: grid;
+    margin: 5% 20%;
+    align-items: center;
+}
+form.verify {
+    display: grid;
+    place-items: center;
+    margin: 2% 0;
+    grid-template-columns: 30% 70%;
+    height: 35vw;
+}
+
+h1 {
+    text-align: center;
+}
+label {
+    font-size: 1.2em;
+}
+span.warning {
+    color: red;
+}
+p.verify {
+    font-size: 1.5em;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    height: auto;
+}
+input[type="text"].verify {
+    height: 2.5vw;
+    width: 20vw;
+    justify-self: left;
+}
+input[type="submit"].verify {
+    align-self: center;
+    width: 15vw;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    margin-bottom: 15vw;
+}
+form.verify span.warning {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+form.sign_in input[type="submit"].login {
+    justify-self: center;
+}
+
+a.diary_list {
+    text-decoration: none;
+    color: #1B1E32;
+}
+a.diary_list:hover {
+    text-decoration: underline;
+}
+div.diary_list {
+    margin: 15px 0;
+    border: 1.5px solid #959FE5;
+    background-color: #F7EFF0;
+    padding: 1.5em;
+    width: 100%;
+}
+div.diary_list:hover {
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+    padding: 2em;
+}
+p.error {
+    justify-self: center;
+    font-size: 1.5em;
+}
+
+button.go_back {
+    width: 20vw;
+    justify-self: center;
+}
+
+input.new {
+    justify-self: left;
+    width: 10vw;
+}
+p.open {
+    font-size: 2em;
+}
+
+div.home {
+    font-size: 1.5em;
+    padding-bottom: 20px;
+
+}
+div.home a {
+    color: #535984;
+    text-decoration: none;
+}
+
+div.home a:hover {
+    text-decoration: underline;
+    background-color: #F7EFF0;
+    border: 1px solid #959FE5;
+    padding: 10px;
+    border-radius: 10px;
+}
+p.notice {
+    grid-row-start: 2;
+    grid-column-start: 1;
+    grid-column-end: 10;
 }
