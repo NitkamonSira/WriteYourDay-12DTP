@@ -8,7 +8,7 @@ def get_data_from_database(query, params=None):
 
     Args:
         query (str): query that use to get the data from database
-        params (tuple, optional): Variable that need to pass in with the query. 
+        params (tuple, optional): Variable that need to pass in with the query.
         Defaults to None.
 
     Returns:
