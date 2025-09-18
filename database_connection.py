@@ -61,7 +61,7 @@ def check_user_data(require, check, input_taken):
     """
     query = f"SELECT {require} FROM User WHERE {check} = ?;"
     result = get_data_from_database(query, (input_taken,))
-    
+
     # check that data exist in database or not
     # result should be blank list if data doesn't exist
     if len(result) == 0:
