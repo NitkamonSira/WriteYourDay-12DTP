@@ -9,8 +9,8 @@ app.secret_key = "Your Secret key"  # replace this with your secret key
 DATABASE = "diary.db"
 SERVER = "smtp.gmail.com"
 PORT = 587
-SENDER_EMAIL = "Your email address"  # replace this with your email address
-email_password = "Your email app password"  # replace this with your app password
+SENDER_EMAIL = "noreply.writeyourday@gmail.com"  # replace this with your email address
+email_password = "wcgg godb abij zukd"  # replace this with your app password
 
 
 @app.route("/")
@@ -20,9 +20,6 @@ def home():
 
 @app.route("/sign_up", methods=["GET", "POST"])
 def sign_up():
-    # redirect to main if already login
-    if session.get("id") is not None:
-        return redirect(url_for("main"))
     # get entry from html page
     email_entry = request.form.get("email")
     username_entry = request.form.get("username")
@@ -123,9 +120,6 @@ WHERE email = '{email}'"""
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    # redirect to main if already login
-    if session.get("id") is not None:
-        return redirect(url_for("main"))
     # get user entry from html
     username_entry = request.form.get("email")
     password_entry = request.form.get("password")
@@ -260,8 +254,10 @@ def main():
     if id is None:
         abort(401)
     # getting current user username to show on html
-    user_query = f"SELECT username FROM User WHERE id = {id}"
+    user_query = f"SELECT username, is_verified FROM User WHERE id = {id}"
     current_user = get_data_from_database(user_query)[0][0]
+    if get_data_from_database(user_query)[0][1] == 0:
+        return redirect(url_for("verify_page"))
     # getting all diary that user have sorting by the time that last open
     # the diary that recently view will come first
     diary_list_query = f"""SELECT id, topic, last_modified, year, month, date
@@ -324,4 +320,4 @@ def unauthorized(e):
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)

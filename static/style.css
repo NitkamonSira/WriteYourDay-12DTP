@@ -300,6 +300,7 @@ p.error {
 button.go_back {
     width: 20vw;
     justify-self: center;
+    margin-bottom: 2vw;
 }
 
 input.new {
