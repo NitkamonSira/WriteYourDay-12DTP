@@ -45,10 +45,6 @@ Write Your Day"""
         print(f"Error sending email: {e}")
 
 
-with open('email_password.txt', 'r') as file:
-    email_password = file.read()
-
-
 def verification_code(num):
     """_summary_
 

@@ -304,19 +304,19 @@ VALUES (?, ?);"""
 @app.errorhandler(404)
 def not_found(e):
     # custom 404
-    return render_template("404.html")
+    return render_template("404.html", title="404")
 
 
 @app.errorhandler(500)
 def server_error(e):
     # custom 500
-    return render_template("500.html")
+    return render_template("500.html", title="500")
 
 
 @app.errorhandler(401)
 def unauthorized(e):
     # custom 401
-    return render_template("401.html")
+    return render_template("401.html", title="401")
 
 
 if __name__ == "__main__":
