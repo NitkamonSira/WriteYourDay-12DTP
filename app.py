@@ -278,7 +278,7 @@ ORDER BY last_open DESC
         if logout_button == "logout":
             session["id"] = None  # clear session
             return redirect(url_for("home"))  # take user to the home page
-        
+
         # when '+ new' button is clicked
         # create new diary in Entry table and insert keys into UserEntry table
         current_date = datetime.now().strftime("%Y%m%d%H%M%S")
