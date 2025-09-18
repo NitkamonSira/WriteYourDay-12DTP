@@ -9,8 +9,8 @@ app.secret_key = "Your Secret key"  # replace this with your secret key
 DATABASE = "diary.db"
 SERVER = "smtp.gmail.com"
 PORT = 587
-SENDER_EMAIL = "noreply.writeyourday@gmail.com"  # replace this with your email address
-email_password = "wcgg godb abij zukd"  # replace this with your app password
+SENDER_EMAIL = "Your email address"  # replace this with your email address
+email_password = "Your email password"  # replace this with your app password
 
 
 @app.route("/")
